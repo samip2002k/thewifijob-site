@@ -9,31 +9,58 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f6f8fa;
+      background: #f9fafa;
       color: #333;
     }
 
     .hero {
-      background: url('https://source.unsplash.com/1600x900/?laptop,beach,wifi') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1581090700227-1e8a0d2599d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 6rem 1rem 4rem;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
       font-size: 3rem;
       margin: 0 0 1rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
 
     .hero p {
-      font-size: 1.2rem;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #00b894;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background-color: #019875;
     }
 
     main {
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 900px;
+      margin: 3rem auto;
       padding: 0 1rem;
     }
 
@@ -55,15 +82,30 @@
       list-style: none;
       padding: 0;
       margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
     }
 
     ul.features li {
       background: #fff;
       padding: 1rem 1.5rem;
-      margin: 0.5rem 0;
+      border-left: 5px solid #0078d7;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       font-size: 1.05rem;
+      animation: fadeInUp 0.5s ease-in forwards;
+      opacity: 0;
+    }
+
+    ul.features li:nth-child(1) { animation-delay: 0.2s; }
+    ul.features li:nth-child(2) { animation-delay: 0.4s; }
+    ul.features li:nth-child(3) { animation-delay: 0.6s; }
+    ul.features li:nth-child(4) { animation-delay: 0.8s; }
+    ul.features li:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -89,31 +131,43 @@
       .hero h1 {
         font-size: 2rem;
       }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <section class="hero">
-    <h1>The WiFi Job</h1>
-    <p>Building freedom from anywhere — one WiFi-powered project at a time.</p>
+    <div class="hero-content">
+      <h1>The WiFi Job</h1>
+      <p>Crafting freedom through simple online work, powered by WiFi and passion.</p>
+      <a href="#features" class="cta">Start Exploring</a>
+    </div>
   </section>
 
-  <main>
-    <h2>What We're All About</h2>
-    <p>We’re building a part-time, family-run online business — simple, honest, and run entirely on WiFi.</p>
+  <main id="features">
+    <h2>What Makes Us Different</h2>
+    <p>We’re not chasing viral success. We’re building something real — a family-first project with WiFi as our only requirement.</p>
 
     <ul class="features">
-      <li>🌎 Work from anywhere with just a laptop</li>
-      <li>👨‍👩‍👧‍👦 Built by a real family — no fake gurus here</li>
-      <li>📶 Focused on passive income and creative freedom</li>
-      <li>📈 Learn digital tools, blogging, and automation</li>
-      <li>💡 Transparent journey — learn what works and what doesn’t</li>
+      <li>📶 WiFi-powered side income — work from your kitchen or Kathmandu</li>
+      <li>👨‍👩‍👧‍👦 Run by real people, sharing both wins and failures</li>
+      <li>💻 Simple tech skills — nothing overwhelming</li>
+      <li>🌱 Transparent journey — learn as we learn</li>
+      <li>📬 Optional newsletter for updates, tips, and tools</li>
     </ul>
   </main>
 
   <footer>
-    &copy; 2025 The WiFi Job — Powered by people, driven by WiFi.
+    &copy; 2025 The WiFi Job — Work light, live fully.
   </footer>
 
 </body>
