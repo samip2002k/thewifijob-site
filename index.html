@@ -4,108 +4,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The WiFi Job</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Inter', sans-serif;
-      background: #f9fafa;
-      color: #333;
     }
 
-    .hero {
-      background: url('https://images.unsplash.com/photo-1581090700227-1e8a0d2599d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1580894908361-9ef446f47828?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
       color: white;
       text-align: center;
-      padding: 6rem 1rem 4rem;
-      position: relative;
+      padding: 4rem 1rem;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
+    header h1 {
       font-size: 3rem;
-      margin: 0 0 1rem;
+      font-weight: 700;
     }
 
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
+    header p {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
     }
 
-    .cta {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #00b894;
+    .hero-btn {
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #0078d7;
       color: white;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .cta:hover {
-      background-color: #019875;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     main {
       max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
     }
 
-    main h2 {
+    section.features {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    section.features h2 {
       color: #0078d7;
-      font-size: 2rem;
-      text-align: center;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
 
-    main p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      text-align: center;
-      color: #444;
-    }
-
-    ul.features {
+    ul {
+      text-align: left;
       list-style: none;
-      padding: 0;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    ul li {
+      padding: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    ul li::before {
+      content: "📶 ";
+      margin-right: 0.5rem;
+    }
+
+    .email-signup {
       margin-top: 2rem;
-      display: grid;
-      gap: 1rem;
     }
 
-    ul.features li {
-      background: #fff;
-      padding: 1rem 1.5rem;
-      border-left: 5px solid #0078d7;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 1.05rem;
-      animation: fadeInUp 0.5s ease-in forwards;
-      opacity: 0;
+    .email-signup input {
+      padding: 0.6rem;
+      font-size: 1rem;
+      width: 70%;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 0.5rem;
     }
 
-    ul.features li:nth-child(1) { animation-delay: 0.2s; }
-    ul.features li:nth-child(2) { animation-delay: 0.4s; }
-    ul.features li:nth-child(3) { animation-delay: 0.6s; }
-    ul.features li:nth-child(4) { animation-delay: 0.8s; }
-    ul.features li:nth-child(5) { animation-delay: 1s; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .email-signup button {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     footer {
@@ -114,7 +113,6 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 3rem;
     }
 
     a {
@@ -126,48 +124,36 @@
     a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .cta {
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>The WiFi Job</h1>
-      <p>Crafting freedom through simple online work, powered by WiFi and passion.</p>
-      <a href="#features" class="cta">Start Exploring</a>
-    </div>
-  </section>
+  <header>
+    <h1>The WiFi Job</h1>
+    <p>Build a digital life powered by WiFi — from Knoxville to the world.</p>
+    <button class="hero-btn">Join the Journey</button>
+  </header>
 
-  <main id="features">
-    <h2>What Makes Us Different</h2>
-    <p>We’re not chasing viral success. We’re building something real — a family-first project with WiFi as our only requirement.</p>
+  <main>
+    <section class="features">
+      <h2>What You'll Discover</h2>
+      <ul>
+        <li>💻 Start your own WiFi-powered income stream</li>
+        <li>🌍 Explore Knoxville's hidden local experiences</li>
+        <li>🧰 Access free tools, guides & digital templates</li>
+        <li>👨‍👩‍👧 Follow our real family journey</li>
+      </ul>
 
-    <ul class="features">
-      <li>📶 WiFi-powered side income — work from your kitchen or Kathmandu</li>
-      <li>👨‍👩‍👧‍👦 Run by real people, sharing both wins and failures</li>
-      <li>💻 Simple tech skills — nothing overwhelming</li>
-      <li>🌱 Transparent journey — learn as we learn</li>
-      <li>📬 Optional newsletter for updates, tips, and tools</li>
-    </ul>
+      <div class="email-signup">
+        <p><strong>Get WiFi job ideas + local stories in your inbox:</strong></p>
+        <input type="email" placeholder="you@example.com" />
+        <button>Subscribe</button>
+      </div>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 The WiFi Job — Work light, live fully.
+    &copy; 2025 TheWiFiJob.com | Made with ❤️ in Tennessee
   </footer>
 
 </body>
